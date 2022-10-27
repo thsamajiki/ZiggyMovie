@@ -5,7 +5,7 @@ import androidx.lifecycle.ViewModel
 import com.hero.ziggymovie.view.model.Movie
 
 class MovieDetailViewModel(
-    private val savedStateHandle: SavedStateHandle
+    savedStateHandle: SavedStateHandle
 ) : ViewModel() {
 
     companion object {

@@ -9,9 +9,11 @@
         <entry key="..\:/Users/Hoseop/AndroidStudioProjects/ZiggyMovie/app/src/main/res/layout/activity_splash.xml" value="0.15462962962962962" />
         <entry key="..\:/Users/Hoseop/AndroidStudioProjects/ZiggyMovie/app/src/main/res/layout/dialog_movie_detail.xml" value="0.1" />
         <entry key="..\:/Users/Hoseop/AndroidStudioProjects/ZiggyMovie/app/src/main/res/layout/fragment_movie_detail_dialog.xml" value="0.1" />
+        <entry key="..\:/Users/Hoseop/AndroidStudioProjects/ZiggyMovie/app/src/main/res/layout/fragment_movie_list.xml" value="0.15881458966565348" />
         <entry key="..\:/Users/Hoseop/AndroidStudioProjects/ZiggyMovie/app/src/main/res/layout/item_load_state.xml" value="0.286231884057971" />
         <entry key="..\:/Users/Hoseop/AndroidStudioProjects/ZiggyMovie/app/src/main/res/layout/item_movie_list.xml" value="0.1" />
         <entry key="..\:/Users/Hoseop/AndroidStudioProjects/ZiggyMovie/app/src/main/res/layout/item_network_state.xml" value="0.286231884057971" />
+        <entry key="..\:/Users/Hoseop/AndroidStudioProjects/ZiggyMovie/app/src/main/res/menu/menu_bt_nav.xml" value="0.33487179487179486" />
       </map>
     </option>
   </component>
