@@ -117,7 +117,7 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_marginTop="2dp"
-                                android:text="개봉년도: "
+                                android:text="출연진: "
                                 android:textSize="@dimen/small_text_size"
                                 android:textStyle="bold" />
 

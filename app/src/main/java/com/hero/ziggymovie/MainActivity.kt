@@ -27,6 +27,8 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
+        binding.lifecycleOwner = this
+        binding.viewModel = getViewModel()
         val view = binding.root
         setContentView(view)
 
@@ -52,32 +54,6 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
 
         setUpRecyclerView()
         setupObserver()
-        setEditorActionListener()
-
-//        viewModel.searchMovie("어벤져스")
-    }
-
-    private fun setEditorActionListener() {
-//        binding.inputMovieTitle.setOnEditorActionListener(OnEditorActionListener { v, actionId, event ->
-//            when (actionId) {
-//                EditorInfo.IME_ACTION_DONE -> {
-//                    val input = v.text.toString()
-//
-//                    binding.btnMovieSearch.setOnClickListener {
-//                        getMovieList(input)
-//                    }
-//                }
-//            }
-//            true
-//        })
-        binding.btnMovieSearch.setOnClickListener {
-            val input = binding.inputMovieTitle.text.toString()
-            getMovieList(input)
-        }
-    }
-
-    private fun getMovieList(input: String) {
-        viewModel.searchMovie(input)
     }
 
     override fun onClick(view: View?) {
@@ -108,18 +84,13 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
                 }
             }
             adapter = movieListAdapter
-//            .withLoadStateFooter(
-//                MoviePagedListLoadStateAdapter {
-//                    movieListAdapter.retry()
-//                }
-//            )
         }
     }
 
     private fun setupObserver() {
         with(viewModel) {
             movieList.observe(this@MainActivity) {
-                movieListAdapter.submitList(it)
+                movieListAdapter.submitData(lifecycle, it)
             }
         }
     }

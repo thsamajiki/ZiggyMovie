@@ -2,15 +2,15 @@ package com.hero.ziggymovie
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import androidx.paging.PagingDataAdapter
 import androidx.recyclerview.widget.DiffUtil
-import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.hero.ziggymovie.databinding.ItemMovieListBinding
 import com.hero.ziggymovie.view.model.Movie
 
 class MovieListAdapter(
     private val onClick: (Movie) -> Unit
-) : ListAdapter<Movie, MovieListAdapter.MovieItemViewHolder>(
+) : PagingDataAdapter<Movie, MovieListAdapter.MovieItemViewHolder>(
     object : DiffUtil.ItemCallback<Movie>() {
         override fun areItemsTheSame(oldItem: Movie, newItem: Movie): Boolean {
             return oldItem.title == newItem.title

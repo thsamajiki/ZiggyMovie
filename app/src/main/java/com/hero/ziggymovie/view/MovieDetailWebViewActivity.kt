@@ -1,5 +1,6 @@
 package com.hero.ziggymovie.view
 
+import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.webkit.WebResourceRequest
@@ -12,6 +13,14 @@ class MovieDetailWebViewActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityMovieDetailWebViewBinding
 
+    companion object {
+        private const val KEY_URL = "url"
+
+        fun getIntent(context: Context, url: String): Intent =
+            Intent(context, MovieDetailWebViewActivity::class.java)
+                .putExtra(KEY_URL, url)
+    }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityMovieDetailWebViewBinding.inflate(layoutInflater)
@@ -19,8 +28,7 @@ class MovieDetailWebViewActivity : AppCompatActivity() {
 
         setContentView(view)
 
-        val intent: Intent = intent
-//        val url: String = intent.getStringExtra("url")
+        val url: String = intent.getStringExtra(KEY_URL).orEmpty()
 
         binding.movieWebView.webViewClient = MovieWebView()
 
@@ -28,7 +36,7 @@ class MovieDetailWebViewActivity : AppCompatActivity() {
         webSet.builtInZoomControls = true
         webSet.javaScriptEnabled = true
 
-//        binding.movieWebView.loadUrl(url)
+        binding.movieWebView.loadUrl(url)
     }
 
     class MovieWebView : WebViewClient() {

@@ -13,7 +13,8 @@ interface MovieApi {
         @Header("X-Naver-Client-Id") clientId: String,
         @Header("X-Naver-Client-Secret") clientSecret: String,
         @Query("query") keyword: String,
-        @Query("display") display: Int = 100
+        @Query("start") start: Int,
+        @Query("display") display: Int = 10
     ) : Single<MovieListResponse>
 
 //    @GET("/v1/search/movie.json")
