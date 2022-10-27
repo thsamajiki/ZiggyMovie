@@ -2,7 +2,7 @@
 <layout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools" >
+    xmlns:tools="http://schemas.android.com/tools">
 
     <data>
         <variable
@@ -11,77 +11,76 @@
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
-
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".MainActivity">
-
-    <androidx.appcompat.widget.Toolbar
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/input_movie_title_toolbar"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:contentInsetStart="0dp" >
+        android:layout_height="match_parent"
+        tools:context=".MainActivity">
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/input_movie_title_toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:contentInsetStart="0dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="?attr/actionBarSize"
+                android:layout_marginTop="5dp"
+                android:orientation="horizontal">
+
+                <EditText
+                    android:id="@+id/input_movie_title"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginStart="10dp"
+                    android:layout_weight="1"
+                    android:background="@null"
+                    android:hint="@string/edit_text_input_movie_title"
+                    android:inputType="text"
+                    android:maxLines="1"
+                    android:text="@={viewModel.keyword}"
+                    android:textSize="@dimen/title_text_size" />
+
+            </LinearLayout>
+
+        </androidx.appcompat.widget.Toolbar>
+
 
         <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="?attr/actionBarSize"
-            android:orientation="horizontal"
-            android:layout_marginTop="5dp" >
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:orientation="vertical"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/input_movie_title_toolbar">
 
-            <EditText
-                android:id="@+id/input_movie_title"
-                android:layout_width="0dp"
+            <com.google.android.material.progressindicator.LinearProgressIndicator
+                android:id="@+id/pb_popular"
+                android:layout_width="wrap_content"
                 android:layout_height="match_parent"
-                android:background="@null"
-                android:layout_weight="1"
-                android:hint="@string/edit_text_input_movie_title"
-                android:inputType="text"
-                android:maxLines="1"
-                android:layout_marginStart="10dp"
-                android:text="@={viewModel.keyword}"
-                android:textSize="@dimen/title_text_size" />
+                android:layout_gravity="center"
+                android:visibility="gone" />
+
+            <TextView
+                android:id="@+id/tv_error"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center"
+                android:text="Connection Error!"
+                android:visibility="gone" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/rv_movie_list"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_margin="4dp"
+                android:scrollbars="vertical"
+                tools:listitem="@layout/item_movie_list" />
 
         </LinearLayout>
 
-    </androidx.appcompat.widget.Toolbar>
-
-
-    <LinearLayout
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:orientation="vertical"
-        app:layout_constraintTop_toBottomOf="@id/input_movie_title_toolbar"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent">
-
-        <com.google.android.material.progressindicator.LinearProgressIndicator
-            android:layout_width="wrap_content"
-            android:layout_height="match_parent"
-            android:id="@+id/pb_popular"
-            android:layout_gravity="center"
-            android:visibility="gone" />
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:id="@+id/tv_error"
-            android:gravity="center"
-            android:text="Connection Error!"
-            android:visibility="gone" />
-
-        <androidx.recyclerview.widget.RecyclerView
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:id="@+id/rv_movie_list"
-            tools:listitem="@layout/item_movie_list"
-            android:layout_margin="4dp"
-            android:scrollbars="vertical" />
-
-    </LinearLayout>
-
-</androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>
