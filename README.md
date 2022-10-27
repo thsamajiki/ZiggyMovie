@@ -61,10 +61,11 @@
 
 
 ## 스크린샷
-<img src="/images/music_list.png" width="360px" height="640px" title="test_video" alt="Test_video"></img>
-<img src="/images/my_playlist.png" width="360px" height="640px" title="test_video" alt="Test_video"></img>
-<img src="/images/player_fragment.png" width="360px" height="640px" title="test_video" alt="Test_video"></img>
-<img src="/images/music_playing_collapsed.png" width="360px" height="640px" title="test_video" alt="Test_video"></img>
+<img src="/images/intro_app.png" width="360px" height="640px" title="test_video" alt="Test_video"></img>
+<img src="/images/movie_detail.png" width="360px" height="640px" title="test_video" alt="Test_video"></img>
+<img src="/images/movie_list.png" width="360px" height="640px" title="test_video" alt="Test_video"></img>
+<img src="/images/movie_naver_detail.png" width="360px" height="640px" title="test_video" alt="Test_video"></img>
+<img src="/images/search_movie.png" width="360px" height="640px" title="test_video" alt="Test_video"></img>
 
 
 
