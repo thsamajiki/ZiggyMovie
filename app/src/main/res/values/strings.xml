@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">ZiggyMovie</string>
+    <string name="edit_text_input_movie_title">영화 제목을 입력하세요</string>
+    <string name="btn_search_movie">검색</string>
+</resources>
