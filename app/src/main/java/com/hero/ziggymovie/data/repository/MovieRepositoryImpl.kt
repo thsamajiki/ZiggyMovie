@@ -10,8 +10,9 @@ import com.hero.ziggymovie.data.remote.MoviePagingSource
 import com.hero.ziggymovie.data.remote.MovieRemoteDataSource
 import com.hero.ziggymovie.view.model.Movie
 import io.reactivex.Flowable
+import javax.inject.Inject
 
-class MovieRepositoryImpl(
+class MovieRepositoryImpl @Inject constructor(
     private val remoteDataSource: MovieRemoteDataSource
 ): MovieRepository {
     override fun getMovieList(keyword: String): Flowable<PagingData<Movie>> {

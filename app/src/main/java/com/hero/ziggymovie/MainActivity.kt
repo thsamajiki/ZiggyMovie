@@ -2,16 +2,17 @@ package com.hero.ziggymovie
 
 import android.os.Bundle
 import android.view.View
+import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
-import androidx.lifecycle.ViewModel
-import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.GridLayoutManager
 import com.hero.ziggymovie.databinding.ActivityMainBinding
 import com.hero.ziggymovie.view.MovieDetailDialogFragment
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class MainActivity : AppCompatActivity(), View.OnClickListener {
     private lateinit var binding: ActivityMainBinding
-    private lateinit var viewModel: MainViewModel
+    private val viewModel: MainViewModel by viewModels<MainViewModel>()
 
     private val movieListAdapter : MovieListAdapter by lazy {
         MovieListAdapter(
@@ -26,11 +27,9 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
         binding.lifecycleOwner = this
-        binding.viewModel = getViewModel()
+        binding.viewModel = viewModel
         val view = binding.root
         setContentView(view)
-
-        viewModel = getViewModel()
 
         val gridLayoutManager = GridLayoutManager(this, 3)
 
@@ -93,11 +92,11 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
         }
     }
 
-    private fun getViewModel(): MainViewModel {
-        return ViewModelProvider(this, object : ViewModelProvider.Factory {
-            override fun <T : ViewModel> create(modelClass: Class<T>): T {
-                return MainViewModel(Injector.provideMovieRepository()) as T
-            }
-        })[MainViewModel::class.java]
-    }
+//    private fun getViewModel(): MainViewModel {
+//        return ViewModelProvider(this, object : ViewModelProvider.Factory {
+//            override fun <T : ViewModel> create(modelClass: Class<T>): T {
+//                return MainViewModel(Injector.provideMovieRepository()) as T
+//            }
+//        })[MainViewModel::class.java]
+//    }
 }

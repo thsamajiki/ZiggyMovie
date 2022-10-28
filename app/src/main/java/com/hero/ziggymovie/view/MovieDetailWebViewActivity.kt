@@ -8,7 +8,9 @@ import android.webkit.WebView
 import android.webkit.WebViewClient
 import androidx.appcompat.app.AppCompatActivity
 import com.hero.ziggymovie.databinding.ActivityMovieDetailWebViewBinding
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class MovieDetailWebViewActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityMovieDetailWebViewBinding

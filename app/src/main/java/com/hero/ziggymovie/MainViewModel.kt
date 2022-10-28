@@ -7,13 +7,16 @@ import androidx.lifecycle.ViewModel
 import androidx.paging.PagingData
 import com.hero.ziggymovie.data.repository.MovieRepository
 import com.hero.ziggymovie.view.model.Movie
+import dagger.hilt.android.lifecycle.HiltViewModel
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.schedulers.Schedulers
 import io.reactivex.subjects.PublishSubject
 import java.util.concurrent.TimeUnit
+import javax.inject.Inject
 
-class MainViewModel(
+@HiltViewModel
+class MainViewModel @Inject constructor(
     private val movieRepository: MovieRepository
 ) : ViewModel() {
     private val compositeDisposable = CompositeDisposable()

@@ -10,8 +10,9 @@ import com.hero.ziggymovie.databinding.FragmentMovieDetailDialogBinding
 
 import com.hero.ziggymovie.view.model.Movie
 import com.hero.ziggymovie.view.viewmodel.MovieDetailViewModel
+import dagger.hilt.android.AndroidEntryPoint
 
-
+@AndroidEntryPoint
 class MovieDetailDialogFragment : DialogFragment() {
 
     private val viewModel: MovieDetailViewModel by viewModels()
@@ -24,7 +25,7 @@ class MovieDetailDialogFragment : DialogFragment() {
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?,
-    ): View? {
+    ): View {
         _binding = FragmentMovieDetailDialogBinding.inflate(inflater, container, false)
         binding.lifecycleOwner = viewLifecycleOwner
 

@@ -3,8 +3,11 @@ package com.hero.ziggymovie.view.viewmodel
 import androidx.lifecycle.SavedStateHandle
 import androidx.lifecycle.ViewModel
 import com.hero.ziggymovie.view.model.Movie
+import dagger.hilt.android.lifecycle.HiltViewModel
+import javax.inject.Inject
 
-class MovieDetailViewModel(
+@HiltViewModel
+class MovieDetailViewModel @Inject constructor(
     savedStateHandle: SavedStateHandle
 ) : ViewModel() {
 
