@@ -34,6 +34,7 @@
 
 ## 사용된 기술
 - Retrofit
+- REST API
 - RxJava
 - MVVM 디자인 패턴
 - DataBinding
