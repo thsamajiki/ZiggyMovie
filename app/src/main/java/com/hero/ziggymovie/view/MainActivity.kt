@@ -1,18 +1,19 @@
-package com.hero.ziggymovie
+package com.hero.ziggymovie.view
 
 import android.os.Bundle
 import android.view.View
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.GridLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.hero.ziggymovie.databinding.ActivityMainBinding
-import com.hero.ziggymovie.view.MovieDetailDialogFragment
+import com.hero.ziggymovie.view.viewmodel.MainViewModel
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
 class MainActivity : AppCompatActivity(), View.OnClickListener {
     private lateinit var binding: ActivityMainBinding
-    private val viewModel: MainViewModel by viewModels<MainViewModel>()
+    private val viewModel by viewModels<MainViewModel>()
 
     private val movieListAdapter : MovieListAdapter by lazy {
         MovieListAdapter(
@@ -31,52 +32,17 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
         val view = binding.root
         setContentView(view)
 
-        val gridLayoutManager = GridLayoutManager(this, 3)
-
-        gridLayoutManager.spanSizeLookup = object : GridLayoutManager.SpanSizeLookup() {
-            override fun getSpanSize(position: Int): Int {
-                val viewType : Int = movieListAdapter.getItemViewType(position)
-
-                if (viewType == MovieListAdapter.MOVIE_VIEW_TYPE) {
-                    return 1
-                } else {
-                    return 3
-                }
-            }
-        }
-
-        binding.rvMovieList.layoutManager = gridLayoutManager
-        binding.rvMovieList.setHasFixedSize(true)
-        binding.rvMovieList.adapter = movieListAdapter
-
-        setUpRecyclerView()
+        initRecyclerView(binding.rvMovieList)
         setupObserver()
     }
 
-    override fun onClick(view: View?) {
-        when(view?.id) {
-
-        }
-    }
-
-    private fun setUpRecyclerView() {
-        binding.rvMovieList.apply {
+    private fun initRecyclerView(recyclerView: RecyclerView) {
+        recyclerView.apply {
+            setHasFixedSize(true)
             layoutManager = GridLayoutManager(baseContext, 3).apply {
                 spanSizeLookup = object : GridLayoutManager.SpanSizeLookup() {
                     override fun getSpanSize(position: Int): Int {
-                        val viewType : Int = movieListAdapter.getItemViewType(position)
-
-                        return when (viewType) {
-                            MovieListAdapter.MOVIE_VIEW_TYPE -> {
-                                3
-                            }
-                            MovieListAdapter.LOAD_STATE_TYPE -> {
-                                1
-                            }
-                            else -> {
-                                0
-                            }
-                        }
+                        return 1 // 1개의 인덱스가 가질 부피
                     }
                 }
             }
@@ -87,9 +53,12 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
     private fun setupObserver() {
         with(viewModel) {
             movieList.observe(this@MainActivity) {
-                movieListAdapter.submitData(lifecycle, it)
+                movieListAdapter.submitData(lifecycle, it) // ViewModel에서 전달받은 PagingData 스트림을 어댑터에 전달
             }
         }
+    }
+
+    override fun onClick(view: View?) {
     }
 
 //    private fun getViewModel(): MainViewModel {

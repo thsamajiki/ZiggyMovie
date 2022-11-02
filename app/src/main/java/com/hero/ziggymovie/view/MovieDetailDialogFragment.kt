@@ -6,9 +6,8 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.DialogFragment
 import androidx.fragment.app.viewModels
+import com.hero.ziggymovie.data.model.Movie
 import com.hero.ziggymovie.databinding.FragmentMovieDetailDialogBinding
-
-import com.hero.ziggymovie.view.model.Movie
 import com.hero.ziggymovie.view.viewmodel.MovieDetailViewModel
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -42,7 +41,6 @@ class MovieDetailDialogFragment : DialogFragment() {
             val intent = MovieDetailWebViewActivity.getIntent(requireContext(), viewModel.movie.webLink)
             startActivity(intent)
         }
-
     }
 
     private fun bindUI(movie: Movie) {

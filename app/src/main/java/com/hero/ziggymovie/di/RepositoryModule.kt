@@ -1,4 +1,4 @@
-package com.hero.ziggymovie.data.di
+package com.hero.ziggymovie.di
 
 import com.hero.ziggymovie.data.repository.MovieRepository
 import com.hero.ziggymovie.data.repository.MovieRepositoryImpl

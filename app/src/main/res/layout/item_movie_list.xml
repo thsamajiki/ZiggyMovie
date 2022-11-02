@@ -3,7 +3,7 @@
     <data>
         <variable
             name="movie"
-            type="com.hero.ziggymovie.view.model.Movie" />
+            type="com.hero.ziggymovie.data.model.Movie" />
     </data>
 
     <com.google.android.material.card.MaterialCardView

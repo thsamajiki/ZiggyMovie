@@ -1,4 +1,4 @@
-package com.hero.ziggymovie.data.di
+package com.hero.ziggymovie.di
 
 import com.hero.ziggymovie.data.api.MovieApi
 import dagger.Module
@@ -19,8 +19,8 @@ object ApiModule {
     fun bindMovieApi(): MovieApi =
         Retrofit.Builder()
             .baseUrl(MovieApi.BASE_URL)
-            .addConverterFactory(GsonConverterFactory.create())
+            .addConverterFactory(GsonConverterFactory.create()) // JSON을 Gson으로 파싱하기 위해 GsonConverterFactory.create()로 GsonConverter를 가져온다.
             .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
-            .build()
+            .build() //Retrofit 객체 생성
             .create(MovieApi::class.java)
 }

@@ -7,13 +7,13 @@
     <data>
         <variable
             name="viewModel"
-            type="com.hero.ziggymovie.MainViewModel" />
+            type="com.hero.ziggymovie.view.viewmodel.MainViewModel" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".MainActivity">
+        tools:context=".view.MainActivity">
 
         <androidx.appcompat.widget.Toolbar
             android:id="@+id/input_movie_title_toolbar"

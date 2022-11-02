@@ -1,7 +1,7 @@
 package com.hero.ziggymovie.data.repository
 
 import androidx.paging.PagingData
-import com.hero.ziggymovie.view.model.Movie
+import com.hero.ziggymovie.data.model.Movie
 import io.reactivex.Flowable
 
 interface MovieRepository {

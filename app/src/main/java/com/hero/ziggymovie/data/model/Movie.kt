@@ -1,4 +1,4 @@
-package com.hero.ziggymovie.view.model
+package com.hero.ziggymovie.data.model
 
 import android.os.Parcelable
 import kotlinx.parcelize.Parcelize

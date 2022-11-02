@@ -1,4 +1,4 @@
-package com.hero.ziggymovie.data.di
+package com.hero.ziggymovie.di
 
 import com.hero.ziggymovie.data.remote.MovieRemoteDataSource
 import com.hero.ziggymovie.data.remote.MovieRemoteDataSourceImpl
