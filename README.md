@@ -23,7 +23,7 @@
 
 ## 앱의 버전
 - minSdkVersion : 27
-- targetSdkVersion : 32
+- targetSdkVersion : 33
 
 
 ## 주요 기능
@@ -34,18 +34,21 @@
 
 ## 사용된 기술
 - Retrofit
+- REST API
 - RxJava
 - MVVM 디자인 패턴
 - DataBinding
 - AAC (Android Architecture Components)
 - Hilt
 - GridLayout
+- Paging
 - RecyclerView
 
 
 ## 사용된 라이브러리
 - Retrofit (com.squareup.retrofit2:retrofit:2.5.0)
 - RxJava2 (io.reactivex.rxjava2:rxjava:2.2.9)
+- Paging (androidx.paging:paging-rxjava2:3.1.1)
 - Hilt (com.google.dagger:hilt-android:2.44)
 - 머티리얼 디자인 (com.google.android.material:material:1.6.1)
 - 머티리얼 프로그래스바 (me.zhanghai.android.materialprogressbar:library:1.6.1)
