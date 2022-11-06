@@ -19,8 +19,8 @@ object ApiModule {
     fun bindMovieApi(): MovieApi =
         Retrofit.Builder()
             .baseUrl(MovieApi.BASE_URL)
-            .addConverterFactory(GsonConverterFactory.create()) // JSON을 Gson으로 파싱하기 위해 GsonConverterFactory.create()로 GsonConverter를 가져온다.
+            .addConverterFactory(GsonConverterFactory.create())
             .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
-            .build() //Retrofit 객체 생성
+            .build()
             .create(MovieApi::class.java)
 }

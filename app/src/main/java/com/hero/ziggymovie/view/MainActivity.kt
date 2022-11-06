@@ -42,7 +42,7 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
             layoutManager = GridLayoutManager(baseContext, 3).apply {
                 spanSizeLookup = object : GridLayoutManager.SpanSizeLookup() {
                     override fun getSpanSize(position: Int): Int {
-                        return 1 // 1개의 인덱스가 가질 부피
+                        return 1
                     }
                 }
             }
@@ -53,19 +53,11 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
     private fun setupObserver() {
         with(viewModel) {
             movieList.observe(this@MainActivity) {
-                movieListAdapter.submitData(lifecycle, it) // ViewModel에서 전달받은 PagingData 스트림을 어댑터에 전달
+                movieListAdapter.submitData(lifecycle, it)
             }
         }
     }
 
     override fun onClick(view: View?) {
     }
-
-//    private fun getViewModel(): MainViewModel {
-//        return ViewModelProvider(this, object : ViewModelProvider.Factory {
-//            override fun <T : ViewModel> create(modelClass: Class<T>): T {
-//                return MainViewModel(Injector.provideMovieRepository()) as T
-//            }
-//        })[MainViewModel::class.java]
-//    }
 }

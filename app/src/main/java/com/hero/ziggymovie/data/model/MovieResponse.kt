@@ -3,7 +3,7 @@ package com.hero.ziggymovie.data.model
 import com.google.gson.annotations.SerializedName
 
 data class MovieResponse(
-    @SerializedName("title") // JSON에서 데이터에 매칭되는 이름 명시
+    @SerializedName("title")
     val title: String,
     @SerializedName("link")
     val link: String,

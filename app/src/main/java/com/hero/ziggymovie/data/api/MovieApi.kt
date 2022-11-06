@@ -6,7 +6,6 @@ import retrofit2.http.GET
 import retrofit2.http.Header
 import retrofit2.http.Query
 
-// json 결과를 받아올 retrofit 통신 인터페이스
 interface MovieApi {
 
     @GET("/v1/search/movie.json")
@@ -19,7 +18,7 @@ interface MovieApi {
     ) : Single<MovieListResponse>
 
     companion object {
-        const val BASE_URL = "https://openapi.naver.com" // 오픈 API의 서버 url
+        const val BASE_URL = "https://openapi.naver.com"
         const val CLIENT_ID = "r2_QGtDthxd3rfdGTBL9"
         const val CLIENT_SECRET_KEY = "9SjkOsayZ3"
     }
