@@ -28,14 +28,14 @@
 
 ## 주요 기능
 - 영화를 검색할 수 있다.
-- 사용자가 원하는 음원을 나의 플레이리스트에 추가할 수 있다.
-- 나의 플레이리스트에서 원하지 않은 음원을 제외할 수 있다.
+- 원하는 영화에 관한 자세한 정보를 확인할 수 있다.
 
 
 ## 사용된 기술
 - Retrofit
 - REST API
 - RxJava
+- 
 - MVVM 디자인 패턴
 - DataBinding
 - AAC (Android Architecture Components)
@@ -51,7 +51,6 @@
 - Paging (androidx.paging:paging-rxjava2:3.1.1)
 - Hilt (com.google.dagger:hilt-android:2.44)
 - 머티리얼 디자인 (com.google.android.material:material:1.6.1)
-- 머티리얼 프로그래스바 (me.zhanghai.android.materialprogressbar:library:1.6.1)
 - 사진 첨부 (com.github.bumptech.glide:glide:4.11.0)
 
 
@@ -69,7 +68,7 @@
 각 영화정보에 제공되는 포스터의 해상도가 별로 좋지 않은 것과 '더보기'를 통해 연결되는 링크가 네이버 영화의 상세정보 페이지가 아닌 점은 아쉬운 점입니다.<br>
 2021년만해도 상세 페이지로 링크가 연결되었는데, 네이버 측에서 모바일 페이지 형식으로 제공하지 않은 것으로 보입니다.<br>
 - 처음에 배우기 어려웠던 RxJava를 성공적으로 구현했다는 점이 뿌듯했고 리액티브 프로그래밍에 대해 좀 더 공부하고 싶은 생각이 들었습니다.
-하지만 RxJava에는 수많은 기능들 중에 일부만 이용하여 검색 기능을 구현한 것은 아쉬웠습니다.<br>
+하지만 RxJava에 있는 수많은 기능들 중에 일부만 이용하여 검색 기능을 구현한 것은 아쉬웠습니다.<br>
 추후에 현업에서 주로 쓰이는 Coroutine을 이용하여 앱에 기능을 추가, 수정할 생각입니다.
 
 
