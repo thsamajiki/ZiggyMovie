@@ -35,7 +35,7 @@
 - Retrofit
 - REST API
 - RxJava
-- 
+- Coroutine
 - MVVM 디자인 패턴
 - DataBinding
 - AAC (Android Architecture Components)
