@@ -74,11 +74,11 @@
 
 
 ## 스크린샷
-<img src="/images/intro_app.png" width="360px" height="640px" title="intro_app" alt="intro_app"></img>
-<img src="/images/search_movie.png" width="360px" height="640px" title="search_movieo" alt="search_movie"></img>
-<img src="/images/movie_list.png" width="360px" height="640px" title="movie_list" alt="movie_list"></img>
-<img src="/images/movie_detail.png" width="360px" height="640px" title="movie_detail" alt="movie_detail"></img>
-<img src="/images/movie_naver_detail.png" width="360px" height="640px" title="movie_naver_detail" alt="movie_naver_detail"></img>
+<img src="/images/intro_app.png" width="310px" height="640px" title="intro_app" alt="intro_app"></img>
+<img src="/images/search_movie.png" width="310px" height="640px" title="search_movieo" alt="search_movie"></img>
+<img src="/images/movie_list.png" width="310px" height="640px" title="movie_list" alt="movie_list"></img>
+<img src="/images/movie_detail.png" width="310px" height="640px" title="movie_detail" alt="movie_detail"></img>
+<img src="/images/movie_naver_detail.png" width="310px" height="640px" title="movie_naver_detail" alt="movie_naver_detail"></img>
 
 
 
