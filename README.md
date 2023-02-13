@@ -83,4 +83,4 @@
 
 
 ## 시연 영상
-<img src="/images/ziggymovie_시연영상.gif" width="360px" height="640px" title="test_video" alt="Test_video"></img>
+<img src="/images/ziggymovie_시연영상.gif" width="320px" height="640px" title="test_video" alt="Test_video"></img>
