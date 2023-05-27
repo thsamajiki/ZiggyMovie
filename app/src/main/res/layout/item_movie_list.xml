@@ -30,7 +30,7 @@
                 android:id="@+id/iv_movie_poster"
                 android:scaleType="centerCrop"
                 android:layout_gravity="center"
-                app:imageUrl="@{movie.imageUrl}" />
+                app:imageUrl="@{movie.poster}" />
 
             <TextView
                 android:layout_width="wrap_content"
@@ -38,7 +38,7 @@
                 android:layout_marginTop="2dp"
                 android:layout_marginStart="4dp"
                 android:id="@+id/mcv_movie_title"
-                app:htmlText="@{movie.title}"
+                android:text="@{movie.title}"
                 android:textSize="@dimen/small_text_size"
                 android:maxLines="1"
                 android:ellipsize="end" />
@@ -49,7 +49,7 @@
                 android:layout_marginTop="4dp"
                 android:layout_marginStart="4dp"
                 android:id="@+id/mcv_movie_release_date"
-                android:text="@{movie.publishedYear}"
+                android:text="@{movie.releaseDate}"
                 android:textSize="@dimen/small_text_size"
                 android:maxLength="4" />
 
