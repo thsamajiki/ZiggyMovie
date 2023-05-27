@@ -1,6 +1,7 @@
 package com.hero.ziggymovie.view
 
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
@@ -27,6 +28,7 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
+
         binding.lifecycleOwner = this
         binding.viewModel = viewModel
         val view = binding.root
@@ -42,22 +44,23 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
             layoutManager = GridLayoutManager(baseContext, 3).apply {
                 spanSizeLookup = object : GridLayoutManager.SpanSizeLookup() {
                     override fun getSpanSize(position: Int): Int {
-                        return 1
+                        return 1 // 1개의 인덱스가 가질 부피
                     }
                 }
             }
             adapter = movieListAdapter
         }
+        Log.d("initRecyclerView", "initRecyclerView: ${recyclerView.adapter}")
     }
 
     private fun setupObserver() {
         with(viewModel) {
             movieList.observe(this@MainActivity) {
-                movieListAdapter.submitData(lifecycle, it)
+                movieListAdapter.submitData(lifecycle, it) // ViewModel 에서 전달받은 PagingData 스트림을 어댑터에 전달
             }
         }
     }
 
-    override fun onClick(view: View?) {
+    override fun onClick(view: View) {
     }
 }
