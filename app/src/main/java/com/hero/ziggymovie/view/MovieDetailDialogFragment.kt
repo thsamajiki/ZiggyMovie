@@ -23,7 +23,7 @@ class MovieDetailDialogFragment : DialogFragment() {
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
-        savedInstanceState: Bundle?,
+        savedInstanceState: Bundle?
     ): View {
         _binding = FragmentMovieDetailDialogBinding.inflate(inflater, container, false)
         binding.lifecycleOwner = viewLifecycleOwner
@@ -34,13 +34,12 @@ class MovieDetailDialogFragment : DialogFragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-
         bindUI(viewModel.movie)
 
-        binding.tvLinkMovieInfo.setOnClickListener {
-            val intent = MovieDetailWebViewActivity.getIntent(requireContext(), viewModel.movie.webLink)
-            startActivity(intent)
-        }
+//        binding.tvLinkMovieInfo.setOnClickListener {
+//            val intent = MovieDetailWebViewActivity.getIntent(requireContext(), viewModel.movie.)
+//            startActivity(intent)
+//        }
     }
 
     private fun bindUI(movie: Movie) {
