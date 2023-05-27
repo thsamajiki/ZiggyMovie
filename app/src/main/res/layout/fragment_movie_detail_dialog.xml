@@ -50,12 +50,12 @@
                     android:layout_height="match_parent"
                     android:orientation="vertical">
 
-                    <ImageView
+                    <androidx.appcompat.widget.AppCompatImageView
                         android:id="@+id/iv_movie_poster"
                         android:layout_width="200dp"
                         android:layout_height="300dp"
                         android:layout_gravity="center_horizontal"
-                        app:imageUrl="@{movie.imageUrl}" />
+                        app:imageUrl="@{movie.poster}" />
 
                     <LinearLayout
                         android:layout_width="match_parent"
@@ -67,19 +67,19 @@
                             android:id="@+id/tv_movie_title"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
+                            android:text="@{movie.title}"
                             android:textSize="@dimen/body_text_size"
                             android:textStyle="bold"
-                            app:htmlText="@{movie.title}"
                             tools:text="movie_title" />
 
-                        <TextView
-                            android:id="@+id/tv_movie_tagline"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:textSize="@dimen/body_text_size"
-                            android:textStyle="bold"
-                            app:htmlText="@{movie.subtitle}"
-                            tools:text="movie_subtitle" />
+<!--                        <TextView-->
+<!--                            android:id="@+id/tv_movie_tagline"-->
+<!--                            android:layout_width="wrap_content"-->
+<!--                            android:layout_height="wrap_content"-->
+<!--                            android:textSize="@dimen/body_text_size"-->
+<!--                            android:textStyle="bold"-->
+<!--                            app:htmlText="@{movie.subtitle}"-->
+<!--                            tools:text="movie_subtitle" />-->
 
                         <LinearLayout
                             android:layout_width="match_parent"
@@ -87,23 +87,13 @@
                             android:orientation="horizontal">
 
                             <TextView
-                                android:id="@+id/tv_movie_directors"
+                                android:id="@+id/tv_movie_director"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_marginTop="2dp"
                                 android:text="감독: "
                                 android:textSize="@dimen/small_text_size"
                                 android:textStyle="bold" />
-
-                            <TextView
-                                android:id="@+id/tv_movie_directors_info"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_marginTop="2dp"
-                                android:textSize="@dimen/body_text_size"
-                                android:textStyle="bold"
-                                app:joinToTextList="@{movie.directors}"
-                                tools:text="movie_directors" />
 
                         </LinearLayout>
 
@@ -120,16 +110,6 @@
                                 android:text="출연진: "
                                 android:textSize="@dimen/small_text_size"
                                 android:textStyle="bold" />
-
-                            <TextView
-                                android:id="@+id/tv_movie_actors_info"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_marginTop="2dp"
-                                android:textSize="@dimen/body_text_size"
-                                android:textStyle="bold"
-                                app:joinToTextList="@{movie.actors}"
-                                tools:text="movie_actors" />
 
                         </LinearLayout>
 
@@ -152,7 +132,7 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_marginTop="2dp"
-                                android:text="@{movie.publishedYear}"
+                                android:text="@{movie.releaseDate}"
                                 android:textSize="@dimen/small_text_size"
                                 tools:text="2022" />
 
@@ -177,7 +157,7 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_marginTop="2dp"
-                                android:text="@{String.valueOf(movie.userRating)}"
+                                android:text="@{String.valueOf(movie.voteAverage)}"
                                 android:textSize="@dimen/small_text_size"
                                 tools:text="4.5" />
 
