@@ -11,7 +11,6 @@ import com.hero.ziggymovie.databinding.ItemMovieListBinding
 class MovieListAdapter(
     private val onClick: (Movie) -> Unit
 ) : PagingDataAdapter<Movie, MovieListAdapter.MovieItemViewHolder>(
-
     object : DiffUtil.ItemCallback<Movie>() {
         override fun areItemsTheSame(oldItem: Movie, newItem: Movie): Boolean {
             return oldItem.title == newItem.title
@@ -24,7 +23,6 @@ class MovieListAdapter(
 ) {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MovieItemViewHolder {
-
         val binding = ItemMovieListBinding.inflate(LayoutInflater.from(parent.context), parent, false)
 
         return MovieItemViewHolder(binding, onClick)
