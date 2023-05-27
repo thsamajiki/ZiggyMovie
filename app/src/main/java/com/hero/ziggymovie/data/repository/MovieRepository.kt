@@ -5,5 +5,5 @@ import com.hero.ziggymovie.data.model.Movie
 import io.reactivex.Flowable
 
 interface MovieRepository {
-    fun getMovieList(keyword: String): Flowable<PagingData<Movie>>
+    fun getMovieList(page: Int, keyword: String): Flowable<PagingData<Movie>>
 }
