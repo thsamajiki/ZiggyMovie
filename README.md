@@ -4,8 +4,8 @@
 
 
 ## 개요
-영화 정보 검색 서비스
-
+영화 정보 검색 서비스 <br>
+(현재 네이버 영화 검색 API가 지원 중단되어 다른 API로 대체 작업중입니다)
 
 ## 프로젝트 기간
 2022\. 09 ~ 2022\. 11
@@ -35,7 +35,7 @@
 - Retrofit
 - REST API
 - RxJava
-- 
+- Coroutine
 - MVVM 디자인 패턴
 - DataBinding
 - AAC (Android Architecture Components)
@@ -74,13 +74,13 @@
 
 
 ## 스크린샷
-<img src="/images/intro_app.png" width="360px" height="640px" title="intro_app" alt="intro_app"></img>
-<img src="/images/search_movie.png" width="360px" height="640px" title="search_movieo" alt="search_movie"></img>
-<img src="/images/movie_list.png" width="360px" height="640px" title="movie_list" alt="movie_list"></img>
-<img src="/images/movie_detail.png" width="360px" height="640px" title="movie_detail" alt="movie_detail"></img>
-<img src="/images/movie_naver_detail.png" width="360px" height="640px" title="movie_naver_detail" alt="movie_naver_detail"></img>
+<img src="/images/intro_app.png" width="310px" height="640px" title="intro_app" alt="intro_app"></img>
+<img src="/images/search_movie.png" width="310px" height="640px" title="search_movieo" alt="search_movie"></img>
+<img src="/images/movie_list.png" width="310px" height="640px" title="movie_list" alt="movie_list"></img>
+<img src="/images/movie_detail.png" width="310px" height="640px" title="movie_detail" alt="movie_detail"></img>
+<img src="/images/movie_naver_detail.png" width="310px" height="640px" title="movie_naver_detail" alt="movie_naver_detail"></img>
 
 
 
 ## 시연 영상
-<img src="/images/ziggymovie_시연영상.gif" width="360px" height="640px" title="test_video" alt="Test_video"></img>
+<img src="/images/ziggymovie_시연영상.gif" width="320px" height="640px" title="test_video" alt="Test_video"></img>
