@@ -30,7 +30,7 @@
                 android:layout_marginTop="5dp"
                 android:orientation="horizontal">
 
-                <EditText
+                <androidx.appcompat.widget.AppCompatEditText
                     android:id="@+id/input_movie_title"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
