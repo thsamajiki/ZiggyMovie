@@ -15,18 +15,17 @@ import javax.inject.Inject
 class MovieRepositoryImpl @Inject constructor(
     private val remoteDataSource: MovieRemoteDataSource
 ): MovieRepository {
-    override fun getMovieList(keyword: String): Flowable<PagingData<Movie>> {
-
+    override fun getMovieList(page: Int, keyword: String): Flowable<PagingData<Movie>> {
         return Pager(
             config = PagingConfig(
-                pageSize = 12,
+                pageSize = 12, // 각 페이지에 로드할 데이터 수
                 initialLoadSize = 12
             ),
             pagingSourceFactory = {
-                MoviePagingSource(remoteDataSource, keyword)
+                MoviePagingSource(remoteDataSource, keyword) // PagingSource 인스턴스를 생성
             }
         )
-            .flowable
+            .flowable // Pager를 생성 후 Flowable 형태로 반환.
             .map {
                 it.map { movieResponse -> movieResponse.toEntity() }
             }
