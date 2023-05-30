@@ -6,8 +6,7 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import androidx.paging.PagingData
-import androidx.paging.map
-import com.hero.ziggymovie.data.model.Movie
+import com.hero.ziggymovie.data.model.MovieData
 import com.hero.ziggymovie.data.repository.MovieRepository
 import dagger.hilt.android.lifecycle.HiltViewModel
 import io.reactivex.android.schedulers.AndroidSchedulers
@@ -24,10 +23,10 @@ class MainViewModel @Inject constructor(
 ) : ViewModel() {
     private val compositeDisposable = CompositeDisposable()
 
-    private val _movieList = MutableLiveData<PagingData<Movie>>()
+    private val _movieDataList = MutableLiveData<PagingData<MovieData>>()
 
-    val movieList: LiveData<PagingData<Movie>>
-        get() = _movieList
+    val movieDataList: LiveData<PagingData<MovieData>>
+        get() = _movieDataList
 
     val keyword: MutableLiveData<String> = MutableLiveData()
 
@@ -61,33 +60,32 @@ class MainViewModel @Inject constructor(
         viewModelScope.launch {
             kotlin.runCatching {
                 movieRepository.getMovieList(
-                    page = 1,
-                    keyword = ""
+                    page = 1
                 )
-            }
-                .map {
-                    it.map {
-                        it.map {
-                            it
-                        }
+                    .collect {
+                        Log.d("MainViewModel - requestMovieList", "requestMovieList: $it")
+                        _movieDataList.value = it
                     }
-                }
-                .onSuccess {
-//                    _movieList.value = it
-                }
-                .onFailure {
-                    Log.e("MainViewModel", "requestMovieList: $it")
-                }
+            }
+//                .onSuccess {
+//                    Log.d("MainViewModel - requestMovieList", "requestMovieList: $it")
+//                    Log.d("MainViewModel - requestMovieList", "requestMovieList: ${it.asLiveData().value}")
+//
+//                    _movieDataList.value = it.asLiveData().value
+//                }
+//                .onFailure {
+//                    Log.e("MainViewModel", "requestMovieList: $it")
+//                }
         }
     }
 
     private fun searchMovie(keyword: String) {
-        compositeDisposable.add(movieRepository.getMovieList(page = 1, keyword = keyword)
+        compositeDisposable.add(movieRepository.searchMovie(page = 1, keyword = keyword)
             .subscribeOn(Schedulers.io())
             .observeOn(AndroidSchedulers.mainThread())
             .subscribe(
                 {
-                    _movieList.value = it
+                    _movieDataList.value = it
                     Log.d("mainViewModel-success", "searchMovie: $it")
                 },
                 {
