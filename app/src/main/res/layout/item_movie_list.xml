@@ -3,7 +3,7 @@
     <data>
         <variable
             name="movie"
-            type="com.hero.ziggymovie.data.model.Movie" />
+            type="com.hero.ziggymovie.data.model.MovieData" />
     </data>
 
     <com.google.android.material.card.MaterialCardView
@@ -30,7 +30,7 @@
                 android:id="@+id/iv_movie_poster"
                 android:scaleType="centerCrop"
                 android:layout_gravity="center"
-                app:imageUrl="@{movie.poster}" />
+                app:imageUrl="@{movie.posterPath}" />
 
             <TextView
                 android:layout_width="wrap_content"
