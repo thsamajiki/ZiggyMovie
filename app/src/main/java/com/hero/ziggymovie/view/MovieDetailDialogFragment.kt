@@ -6,7 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.DialogFragment
 import androidx.fragment.app.viewModels
-import com.hero.ziggymovie.data.model.Movie
+import com.hero.ziggymovie.data.model.MovieData
 import com.hero.ziggymovie.databinding.FragmentMovieDetailDialogBinding
 import com.hero.ziggymovie.view.viewmodel.MovieDetailViewModel
 import dagger.hilt.android.AndroidEntryPoint
@@ -34,7 +34,7 @@ class MovieDetailDialogFragment : DialogFragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        bindUI(viewModel.movie)
+        bindUI(viewModel.movieData)
 
 //        binding.tvLinkMovieInfo.setOnClickListener {
 //            val intent = MovieDetailWebViewActivity.getIntent(requireContext(), viewModel.movie.)
@@ -42,15 +42,15 @@ class MovieDetailDialogFragment : DialogFragment() {
 //        }
     }
 
-    private fun bindUI(movie: Movie) {
-        binding.movie = movie
+    private fun bindUI(movieData: MovieData) {
+        binding.movie = movieData
     }
 
     companion object {
-        fun newInstance(movie: Movie): MovieDetailDialogFragment =
+        fun newInstance(movieData: MovieData): MovieDetailDialogFragment =
             MovieDetailDialogFragment().apply {
                 arguments = Bundle().apply {
-                    putParcelable(MovieDetailViewModel.KEY_MOVIE, movie)
+                    putParcelable(MovieDetailViewModel.KEY_MOVIE, movieData)
                 }
             }
     }
