@@ -1,5 +1,7 @@
 package com.hero.ziggymovie.data.remote
 
+import android.util.Log
+import androidx.paging.PagingSource
 import androidx.paging.PagingState
 import androidx.paging.rxjava2.RxPagingSource
 import com.hero.ziggymovie.data.model.MovieResponse
@@ -31,13 +33,16 @@ class MoviePagingSource(
 
         val startPosition = params.loadSize * (page - 1) + 1
 
-        return movieRemoteDataSource.getMovieList(
+        return movieRemoteDataSource.searchMovie(
             page = page,
             keyword = keyword
         ).subscribeOn(Schedulers.io())
             .map<LoadResult<Int, MovieResponse>> { response ->
+                if(response.totalPages <= page) {
+                    return@map LoadResult.Error(Exception("마지막 페이지입니다."))
+                }
                 LoadResult.Page(
-                    data = response.movieList,
+                    data = response.result,
                     prevKey = null, // Only paging forward.
                     nextKey = page + 1
                 )
@@ -46,5 +51,41 @@ class MoviePagingSource(
                 throwable.printStackTrace()
                 LoadResult.Error(throwable)
             }
+    }
+}
+
+
+class MovieListPagingSource(
+    private val movieRemoteDataSource: MovieRemoteDataSource
+): PagingSource<Int, MovieResponse>() {
+    override fun getRefreshKey(state: PagingState<Int, MovieResponse>): Int? {
+        return state.anchorPosition?.let {
+            state.closestPageToPosition(it)?.prevKey?.plus(1)
+                ?: state.closestPageToPosition(it)?.nextKey?.minus(1)
+        }
+    }
+
+    override suspend fun load(params: LoadParams<Int>): LoadResult<Int, MovieResponse> {
+        val page = params.key ?: 1
+
+        Log.d("movie page", "$page")
+
+        val movieResponse =
+            kotlin.runCatching {
+                movieRemoteDataSource.getMovieList(
+                    page = page
+                )
+            }
+                .onFailure {
+                    return LoadResult.Error(it)
+                }
+
+        val list = movieResponse.getOrNull()?.movieList.orEmpty()
+
+        return LoadResult.Page(
+                    data = list,
+                    prevKey = null, // Only paging forward.
+                    nextKey = page + 1
+                )
     }
 }
