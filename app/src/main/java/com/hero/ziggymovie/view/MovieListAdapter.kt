@@ -5,18 +5,18 @@ import android.view.ViewGroup
 import androidx.paging.PagingDataAdapter
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
-import com.hero.ziggymovie.data.model.Movie
+import com.hero.ziggymovie.data.model.MovieData
 import com.hero.ziggymovie.databinding.ItemMovieListBinding
 
 class MovieListAdapter(
-    private val onClick: (Movie) -> Unit
-) : PagingDataAdapter<Movie, MovieListAdapter.MovieItemViewHolder>(
-    object : DiffUtil.ItemCallback<Movie>() {
-        override fun areItemsTheSame(oldItem: Movie, newItem: Movie): Boolean {
+    private val onClick: (MovieData) -> Unit
+) : PagingDataAdapter<MovieData, MovieListAdapter.MovieItemViewHolder>(
+    object : DiffUtil.ItemCallback<MovieData>() {
+        override fun areItemsTheSame(oldItem: MovieData, newItem: MovieData): Boolean {
             return oldItem.title == newItem.title
         }
 
-        override fun areContentsTheSame(oldItem: Movie, newItem: Movie): Boolean {
+        override fun areContentsTheSame(oldItem: MovieData, newItem: MovieData): Boolean {
             return oldItem == newItem
         }
     }
@@ -38,10 +38,10 @@ class MovieListAdapter(
 
     class MovieItemViewHolder(
         private val itemMovieListBinding: ItemMovieListBinding,
-        private val onClick: (Movie) -> Unit
+        private val onClick: (MovieData) -> Unit
     ) : RecyclerView.ViewHolder(itemMovieListBinding.root) {
 
-        fun bind(item: Movie) {
+        fun bind(item: MovieData) {
             itemMovieListBinding.root.setOnClickListener {
                 onClick(item)
             }
