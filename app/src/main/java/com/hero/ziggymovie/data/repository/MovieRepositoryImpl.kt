@@ -8,7 +8,6 @@ import androidx.paging.rxjava2.flowable
 import com.hero.ziggymovie.data.mapper.toEntity
 import com.hero.ziggymovie.data.model.MovieData
 import com.hero.ziggymovie.data.model.MovieResponse
-import com.hero.ziggymovie.data.remote.MovieListPagingSource
 import com.hero.ziggymovie.data.remote.MoviePagingSource
 import com.hero.ziggymovie.data.remote.MovieRemoteDataSource
 import io.reactivex.Flowable
@@ -26,7 +25,7 @@ class MovieRepositoryImpl @Inject constructor(
                 initialLoadSize = 12
             ),
             pagingSourceFactory = {
-                MovieListPagingSource(remoteDataSource) // PagingSource 인스턴스를 생성
+                MoviePagingSource(remoteDataSource, "") // PagingSource 인스턴스를 생성
             }
         )
             .flow
