@@ -32,6 +32,15 @@ class MainActivity : AppCompatActivity() {
         initRecyclerView(binding.rvMovieList)
     }
 
+    private fun setupObserver() {
+        with(viewModel) {
+            movieDataList.observe(this@MainActivity) {
+                Log.e("setupObserver", "PagingData<MovieData>: $it")
+                movieListAdapter.submitData(lifecycle, it) // ViewModel 에서 전달 받은 PagingData 스트림을 어댑터에 전달
+            }
+        }
+    }
+
     private fun initRecyclerView(recyclerView: RecyclerView) {
         movieListAdapter = MovieListAdapter(
             onClick = ::onClickMovieItem
@@ -48,15 +57,6 @@ class MainActivity : AppCompatActivity() {
             adapter = movieListAdapter
         }
         Log.d("initRecyclerView", "initRecyclerView: ${recyclerView.adapter}")
-    }
-
-    private fun setupObserver() {
-        with(viewModel) {
-            movieDataList.observe(this@MainActivity) {
-                Log.e("setupObserver", "PagingData<MovieData>: $it")
-                movieListAdapter.submitData(lifecycle, it) // ViewModel 에서 전달 받은 PagingData 스트림을 어댑터에 전달
-            }
-        }
     }
 
     private fun onClickMovieItem(movieData: MovieData) {
