@@ -17,15 +17,6 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
     private lateinit var binding: ActivityMainBinding
     private val viewModel by viewModels<MainViewModel>()
 
-//    private val movieListAdapter : MovieListAdapter by lazy {
-//        MovieListAdapter(
-//            onClick = { movie ->
-//                MovieDetailDialogFragment.newInstance(movie)
-//                    .show(supportFragmentManager, "MovieDetailDialog")
-//            }
-//        )
-//    }
-
     private lateinit var movieListAdapter: MovieListAdapter
 
     override fun onCreate(savedInstanceState: Bundle?) {
