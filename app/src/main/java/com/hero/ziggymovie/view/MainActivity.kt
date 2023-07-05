@@ -2,7 +2,6 @@ package com.hero.ziggymovie.view
 
 import android.os.Bundle
 import android.util.Log
-import android.view.View
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.GridLayoutManager
@@ -13,7 +12,7 @@ import com.hero.ziggymovie.view.viewmodel.MainViewModel
 import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
-class MainActivity : AppCompatActivity(), View.OnClickListener {
+class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
     private val viewModel by viewModels<MainViewModel>()
 
@@ -63,8 +62,5 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
     private fun onClickMovieItem(movieData: MovieData) {
         MovieDetailDialogFragment.newInstance(movieData)
             .show(supportFragmentManager, "MovieDetailDialog")
-    }
-
-    override fun onClick(view: View) {
     }
 }
