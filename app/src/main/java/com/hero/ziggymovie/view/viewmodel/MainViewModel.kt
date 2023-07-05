@@ -63,7 +63,7 @@ class MainViewModel @Inject constructor(
                     page = 1
                 )
                     .collect {
-                        Log.d("MainViewModel - requestMovieList", "requestMovieList: $it")
+                        Log.d("requestMovieList", "requestMovieList: $it")
                         _movieDataList.value = it
                     }
             }
