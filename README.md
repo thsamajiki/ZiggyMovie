@@ -5,7 +5,7 @@
 
 ## 개요
 영화 정보 검색 서비스 <br>
-(현재 네이버 영화 검색 API가 지원 중단되어 다른 API로 대체 작업중입니다)
+
 
 ## 프로젝트 기간
 2022\. 09 ~ 2022\. 11
@@ -17,7 +17,7 @@
 
 
 ## 사용 프로그램 및 언어
-- 사용 프로그램 : Android Studio, Google Firebase, GitHub
+- 사용 프로그램 : Android Studio, GitHub
 - 사용 언어 : Kotlin
 
 
@@ -33,12 +33,11 @@
 
 ## 사용된 기술
 - Retrofit
-- REST API
 - RxJava
 - Coroutine
 - MVVM 디자인 패턴
 - DataBinding
-- AAC (Android Architecture Components)
+- AAC ViewModel
 - Hilt
 - GridLayout
 - Paging
