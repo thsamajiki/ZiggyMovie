@@ -42,7 +42,7 @@
 - GridLayout
 - Paging
 - RecyclerView
-- SAS 아키텍처
+- SAA 아키텍처
 
 
 ## 사용된 라이브러리
