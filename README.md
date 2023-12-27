@@ -22,7 +22,7 @@
 
 
 ## 앱의 버전
-- minSdkVersion : 27
+- minSdkVersion : 26
 - targetSdkVersion : 34
 
 
