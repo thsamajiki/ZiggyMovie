@@ -46,12 +46,12 @@
 
 
 ## 사용된 라이브러리
-- Retrofit (com.squareup.retrofit2:retrofit:2.5.0)
-- RxJava2 (io.reactivex.rxjava2:rxjava:2.2.9)
-- Paging (androidx.paging:paging-rxjava2:3.1.1)
-- Hilt (com.google.dagger:hilt-android:2.44)
-- 머티리얼 디자인 (com.google.android.material:material:1.6.1)
-- 사진 첨부 (com.github.bumptech.glide:glide:4.11.0)
+- Retrofit
+- RxJava2 (io.reactivex.rxjava2:rxjava)
+- Paging (androidx.paging:paging-rxjava2)
+- Hilt
+- 머티리얼 디자인
+- 사진 첨부 (Glide)
 
 
 ## 문제 및 해결 과정
