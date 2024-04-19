@@ -46,7 +46,7 @@
 
 
 ## 사용된 라이브러리
-- Retrofit
+- Retrofit2
 - RxJava2 (io.reactivex.rxjava2:rxjava)
 - Paging (androidx.paging:paging-rxjava2)
 - Hilt
